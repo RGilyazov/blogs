@@ -1,8 +1,9 @@
-import { MinLength, Length } from 'class-validator';
+import { MaxLength, IsNotEmpty } from 'class-validator';
 export class CreateBlogDto {
-  @Length(1, 50)
+  @MaxLength(50)
+  @IsNotEmpty()
   title: string;
 
-  @MinLength(1)
+  @IsNotEmpty()
   content: string;
 }
