@@ -9,7 +9,9 @@ export class BlogService {
   constructor(
     @InjectModel(Blog)
     private blogModel: typeof Blog,
-  ) {}
+  ) {
+    blogModel.sync();
+  }
 
   async getByIdForEdit(id: number, userId: number) {
     const blogModel = await this.blogModel.findByPk(id);

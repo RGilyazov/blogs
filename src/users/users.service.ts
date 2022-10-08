@@ -8,7 +8,9 @@ export class UsersService {
   constructor(
     @InjectModel(User)
     private userModel: typeof User,
-  ) {}
+  ) {
+    userModel.sync();
+  }
 
   findByName(userName: string): Promise<User> {
     return this.userModel.findOne({
