@@ -5,7 +5,6 @@ import {
   Table,
   NotEmpty,
   ForeignKey,
-  NotNull,
 } from 'sequelize-typescript';
 import { User } from 'src/users/user.entity';
 

@@ -47,23 +47,12 @@ export class BlogService {
   }
 
   async create(blog: CreateBlogDto, userId: number): Promise<Blog> {
-    //console.log(userId);
-    //console.log('blogs.service.create', { ...blog, userId: userId });
-    try {
-      const createdBlog = await this.blogModel.create(
-        { ...blog, userId: userId },
-        {
-          returning: true,
-        },
-      );
-      return createdBlog;
-    } catch (error) {
-      // if (error instanceof UniqueConstraintError) {
-      //   throw new ForbiddenException(
-      //     'Credentials taken. ' + error.errors[0].message,
-      //   );
-      // }
-      throw error;
-    }
+    const createdBlog = await this.blogModel.create(
+      { ...blog, userId: userId },
+      {
+        returning: true,
+      },
+    );
+    return createdBlog;
   }
 }

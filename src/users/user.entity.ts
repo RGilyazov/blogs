@@ -1,4 +1,4 @@
-import { CreationOptional, Optional } from 'sequelize';
+import { CreationOptional, DataTypes, Optional } from 'sequelize';
 import { Column, Model, Table, Unique } from 'sequelize-typescript';
 
 export type UserAttributes = {
@@ -17,17 +17,17 @@ export type UserCreationAttributes = Optional<
 >;
 @Table
 export class User extends Model<UserAttributes, UserCreationAttributes> {
-  @Column
+  @Column({ type: DataTypes.STRING(100) })
   declare fullName: string;
 
   @Unique
-  @Column
+  @Column({ type: DataTypes.STRING(50) })
   declare userName: string;
 
   @Column
   declare password: string;
 
   @Unique
-  @Column
+  @Column({ type: DataTypes.STRING(100) })
   declare email: string;
 }
