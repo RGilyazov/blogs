@@ -10,14 +10,6 @@ export class UsersService {
     private userModel: typeof User,
   ) {}
 
-  findOne(id: string): Promise<User> {
-    return this.userModel.findOne({
-      where: {
-        id,
-      },
-    });
-  }
-
   findByName(userName: string): Promise<User> {
     return this.userModel.findOne({
       where: {
@@ -40,11 +32,4 @@ export class UsersService {
       throw error;
     }
   }
-  // async remove(id: string): Promise<void> {
-  //   const user = await this.findOne(id);
-  //   await user.destroy();
-  // }
-  // async findAll(): Promise<User[]> {
-  //   return this.userModel.findAll();
-  // }
 }

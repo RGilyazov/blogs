@@ -6,22 +6,6 @@
     "username": "root",
     "password": "mypassword",
     "database": "dev"
-  },
-  "test": {
-    "dialect": "mysql",
-   "host": "localhost",
-    "port": 3306,
-    "username": "root",
-    "password": "mypassword",
-    "database": "test"
-  },
-  "production": {
-    "dialect": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "username": "root",
-    "password": "mypassword",
-    "database": "prod"
   }
 }
 
