@@ -1,6 +1,7 @@
 import { Injectable, ForbiddenException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Blog } from './blog.entity';
+import { DEFAULT_SORT_FIELD, POST_PER_PAGE } from './constants';
 import { CreateBlogDto } from './dto/createBlog.dto';
 
 @Injectable()
@@ -25,13 +26,13 @@ export class BlogService {
 
   async query(
     start: number,
-    sortingField = 'createdAt',
+    sortingField = DEFAULT_SORT_FIELD,
     desc = false,
     userId?: number,
   ) {
     const res = await this.blogModel.findAll({
       offset: start | 0,
-      limit: 10,
+      limit: POST_PER_PAGE,
       order: [[sortingField, desc ? 'DESC' : 'ASC']],
       where: userId ? { userId } : {},
     });

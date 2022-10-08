@@ -13,6 +13,7 @@ import { BlogService } from './blogs.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { UserDec, UserDecType } from 'src/auth/decorators/user.decorator';
 import { CreateBlogDto } from './dto/createBlog.dto';
+import { DEFAULT_SORT_FIELD } from './constants';
 
 @Controller('blogs')
 export class BlogController {
@@ -24,8 +25,11 @@ export class BlogController {
     @Query('sort') sortingField: string,
     @Query('desc') desc: boolean,
   ) {
-    console.log({ start, sortingField, desc });
-    return this.blogService.query(start | 0, sortingField || 'createdAt', desc);
+    return this.blogService.query(
+      start | 0,
+      sortingField || DEFAULT_SORT_FIELD,
+      desc,
+    );
   }
   @UseGuards(JwtAuthGuard)
   @Post()

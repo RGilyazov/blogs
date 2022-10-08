@@ -7,6 +7,7 @@ import {
   ForeignKey,
 } from 'sequelize-typescript';
 import { User } from 'src/users/user.entity';
+import { BLOG_TITLE_LENGTH } from './constants';
 
 export enum BlogStatusType {
   Published = 'PB',
@@ -35,7 +36,7 @@ export class Blog extends Model<BlogAttributes, BlogCreationAttributes> {
   declare userId: number;
 
   @NotEmpty
-  @Column({ type: DataTypes.STRING(50) })
+  @Column({ type: DataTypes.STRING(BLOG_TITLE_LENGTH) })
   declare title: string;
 
   @NotEmpty

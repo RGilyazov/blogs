@@ -1,4 +1,3 @@
-//import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Strategy } from 'passport-local';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';

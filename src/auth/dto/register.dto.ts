@@ -5,6 +5,10 @@ import {
   MaxLength,
   Length,
 } from 'class-validator';
+import {
+  USER_FULLNAME_LENGTH,
+  USER_USERNAME_LENGTH,
+} from 'src/users/constants';
 export class RegisterDto {
   @IsEmail()
   email: string;
@@ -12,10 +16,10 @@ export class RegisterDto {
   @MinLength(5)
   password: string;
 
-  @Length(5, 50)
+  @Length(5, USER_USERNAME_LENGTH)
   userName: string;
 
   @IsOptional()
-  @MaxLength(100)
+  @MaxLength(USER_FULLNAME_LENGTH)
   fullName: string;
 }

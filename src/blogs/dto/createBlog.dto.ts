@@ -1,6 +1,7 @@
 import { MaxLength, IsNotEmpty } from 'class-validator';
+import { BLOG_TITLE_LENGTH } from '../constants';
 export class CreateBlogDto {
-  @MaxLength(50)
+  @MaxLength(BLOG_TITLE_LENGTH)
   @IsNotEmpty()
   title: string;
 
